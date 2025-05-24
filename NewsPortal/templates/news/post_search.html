@@ -1,0 +1,29 @@
+{% extends 'flatpages/default.html' %}
+
+{% block title %}
+Поиск новостей
+{% endblock title %}
+
+{% block content %}
+   <form action="" method="get">
+    <input type="text" name="query" placeholder="Поиск по названию" value="{{ query }}">
+    <input type="text" name="author" placeholder="Имя автора" value="{{ author }}">
+    <input type="date" name="date_after" placeholder="Дата после" value="{{ date_after }}">
+    <button type="submit">Поиск</button>
+</form>
+
+<h2>Результаты поиска:</h2>
+<ul>
+    {% for post in posts %}
+        <li>
+            <h3>{{ post.title }}</h3>
+            <p>Автор: {{ post.author.name }}</p>
+            <p>Дата: {{ post.dateCreations }}</p>
+            <p>{{ post.preview }}</p>
+            <a href="{{ post.get_absolute_url }}">Читать далее</a>
+        </li>
+    {% empty %}
+        <li>Нет результатов.</li>
+    {% endfor %}
+</ul>
+{% endblock content %}
