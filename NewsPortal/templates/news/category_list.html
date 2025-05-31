@@ -15,9 +15,11 @@
        <input type="submit" value="Найти" />
    </form>
    <h1>Все новости</h1>
-    <h3>Всего новостей {{ post|length}}</h3>
-   {% if post %}
-        <table>
+
+
+<h3>Всего новостей {{ category|length}}</h3>
+{% if category_news_list %}
+<table>
            <tr>
                <td>
                    Название
@@ -35,7 +37,7 @@
                    Рейтинг
                </td>
            </tr>
-            {% for post in post %}
+            {% for post in category_news_list %}
                <tr>
                    <td>
                    <a href="{% url 'post_detail' post.id %}">{{ post.title|censor }}</a>
@@ -64,26 +66,29 @@
                </tr>
             {% endfor %}
        </table>
-   {% else %}
-       <h2>Новостей нет!</h2>
-   {% endif %}
+{% else %}
+<h2>Новостей нет!</h2>
+{% endif %}
 {% if page_obj.has_previous %}
-       <a href="?{% url_replace page=1 %}">1</a>
-       {% if page_obj.previous_page_number != 1 %}
-           ...
-           <a href="?{% url_replace page=page_obj.previous_page_number %}">{{ page_obj.previous_page_number }}</a>
-       {% endif %}
-   {% endif %}
+<a href="?{% url_replace page=1 %}">1</a>
+{% if page_obj.previous_page_number != 1 %}
+...
+<a href="?{% url_replace page=page_obj.previous_page_number %}">{{ page_obj.previous_page_number }}</a>
+{% endif %}
+{% endif %}
 
-   {{ page_obj.number }}
+{{ page_obj.number }}
 
-   {% if page_obj.has_next %}
-       <a href="?{% url_replace page=page_obj.next_page_number %}">{{ page_obj.next_page_number }}</a>
-       {% if paginator.num_pages != page_obj.next_page_number %}
-           ...
-           <a href="?{% url_replace page=page_obj.paginator.num_pages %}">{{ page_obj.paginator.num_pages }}</a>
-       {% endif %}
-   {% endif %}
+{% if page_obj.has_next %}
+<a href="?{% url_replace page=page_obj.next_page_number %}">{{ page_obj.next_page_number }}</a>
+{% if paginator.num_pages != page_obj.next_page_number %}
+...
+<a href="?{% url_replace page=page_obj.paginator.num_pages %}">{{ page_obj.paginator.num_pages }}</a>
+{% endif %}
+{% endif %}
+{% if is_not_subscriber %}
+<button> <a href="subscribe">Подписаться на категорию</a> </button>
+{% endif %}
 <br><br>
 <button> <a href="{% url 'post_edit' %}"><u>Опубликовать пост</u></a> </button>
 {% endblock content %}

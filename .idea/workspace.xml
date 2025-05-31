@@ -5,61 +5,25 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="4d89b5cc-ce4f-4897-a767-513d8b8e238f" name="Changes" comment="First">
-      <change afterPath="$PROJECT_DIR$/NewsPortal/accounts/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/NewsPortal/accounts/admin.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/NewsPortal/accounts/apps.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/NewsPortal/accounts/migrations/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/NewsPortal/accounts/models.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/NewsPortal/accounts/tests.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/NewsPortal/accounts/views.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/NewsPortal/fpages/admin.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/NewsPortal/news/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/NewsPortal/news/admin.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/NewsPortal/news/apps.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/NewsPortal/news/filters.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/NewsPortal/news/forms.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/NewsPortal/news/migrations/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/NewsPortal/news/models.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/NewsPortal/news/templatetags/custom_filters.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/NewsPortal/news/templatetags/custom_tags.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/NewsPortal/news/tests.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/NewsPortal/news/urls.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/NewsPortal/news/views.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/NewsPortal/protect/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/NewsPortal/protect/admin.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/NewsPortal/protect/apps.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/NewsPortal/protect/migrations/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/NewsPortal/protect/models.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/NewsPortal/protect/tests.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/NewsPortal/protect/urls.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/NewsPortal/protect/views.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/NewsPortal/sign/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/NewsPortal/sign/admin.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/NewsPortal/sign/apps.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/NewsPortal/sign/forms.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/NewsPortal/sign/migrations/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/NewsPortal/sign/models.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/NewsPortal/sign/tests.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/NewsPortal/sign/urls.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/NewsPortal/sign/views.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/NewsPortal/static/css/styles.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/NewsPortal/templates/account/base.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/NewsPortal/templates/flatpages/contact_page.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/NewsPortal/templates/flatpages/default.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/NewsPortal/templates/main.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/NewsPortal/templates/news/post_delete.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/NewsPortal/templates/news/post_detail.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/NewsPortal/templates/news/post_edit.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/NewsPortal/templates/news/post_list.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/NewsPortal/templates/news/post_search.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/NewsPortal/templates/protect/index.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/NewsPortal/templates/sign/login.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/NewsPortal/templates/sign/logout.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/NewsPortal/templates/sign/signup.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/NewsPortal/templates/news/category_list.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/NewsPortal/templates/news/email_template.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/NewsPortal/templates/news/subscribe.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/NewsPortal/templates/news/title.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/NewsPortal/NewsPortal/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/NewsPortal/NewsPortal/settings.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/NewsPortal/NewsPortal/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/NewsPortal/NewsPortal/urls.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/NewsPortal/db.sqlite3" beforeDir="false" afterPath="$PROJECT_DIR$/NewsPortal/db.sqlite3" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/NewsPortal/news/forms.py" beforeDir="false" afterPath="$PROJECT_DIR$/NewsPortal/news/forms.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/NewsPortal/news/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/NewsPortal/news/models.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/NewsPortal/news/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/NewsPortal/news/urls.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/NewsPortal/news/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/NewsPortal/news/views.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/NewsPortal/protect/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/NewsPortal/protect/views.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/NewsPortal/sign/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/NewsPortal/sign/urls.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/NewsPortal/templates/flatpages/contact_page.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/NewsPortal/templates/flatpages/default.html" beforeDir="false" afterPath="$PROJECT_DIR$/NewsPortal/templates/flatpages/default.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/NewsPortal/templates/news/post_delete.html" beforeDir="false" afterPath="$PROJECT_DIR$/NewsPortal/templates/news/post_delete.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/NewsPortal/templates/news/post_detail.html" beforeDir="false" afterPath="$PROJECT_DIR$/NewsPortal/templates/news/post_detail.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/NewsPortal/templates/news/post_list.html" beforeDir="false" afterPath="$PROJECT_DIR$/NewsPortal/templates/news/post_list.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -69,17 +33,17 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="HTML File" />
         <option value="Python Script" />
+        <option value="HTML File" />
       </list>
     </option>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
-  <component name="ProjectColorInfo"><![CDATA[{
-  "associatedIndex": 1
-}]]></component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 1
+}</component>
   <component name="ProjectId" id="2xTMPaGNWBU76Q7sJbphlou2eWx" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true">
     <ConfirmationsSetting value="2" id="Add" />
@@ -88,20 +52,20 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "ASKED_ADD_EXTERNAL_FILES": "true",
-    "DefaultHtmlFileTemplate": "HTML File",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "git-widget-placeholder": "master",
-    "settings.editor.selected.configurable": "com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;ASKED_ADD_EXTERNAL_FILES&quot;: &quot;true&quot;,
+    &quot;DefaultHtmlFileTemplate&quot;: &quot;HTML File&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;master&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable&quot;
   },
-  "keyToStringList": {
-    "ChangesTree.GroupingKeys": [
-      "directory"
+  &quot;keyToStringList&quot;: {
+    &quot;ChangesTree.GroupingKeys&quot;: [
+      &quot;directory&quot;
     ]
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
       <recent name="C:\Direktoria\HomeWork\NewsPortal\news" />
@@ -131,7 +95,15 @@
       <option name="project" value="LOCAL" />
       <updated>1747958758330</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="First">
+      <option name="closed" value="true" />
+      <created>1748062096076</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1748062096076</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">

@@ -126,3 +126,10 @@ ACCOUNT_LOGIN_METHODS = {'email'}
 ACCOUNT_EMAIL_VERIFICATION = 'none'
 ACCOUNT_FORMS = {'signup': 'sign.models.BasicSignupForm'}
 
+EMAIL_HOST = 'smtp.yandex.ru'
+EMAIL_PORT = 465
+EMAIL_HOST_USER = 't.maill'
+EMAIL_HOST_PASSWORD = 'chwfvolicklmvadx'
+EMAIL_USE_SSL = True
+
+# t.maill@yandex.ru

@@ -2,10 +2,12 @@
 
 {% load custom_filters %}
 
-{% block title %}
-Пост
-{% endblock title %}
 
 {% block content %}
-<h1>{{ post}}</h1>
+{% for cat in post.categories.all %}
+Категория: {{cat.name }}
+{% endfor %}
+<h1>{{ post.title }}</h1>
+<h2>{{post.text}}</h2>
+<br>
 {% endblock content %}

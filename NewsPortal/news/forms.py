@@ -1,5 +1,7 @@
 from django import forms
 from django.core.exceptions import ValidationError
+from django.urls import reverse_lazy
+
 from .models import Post
 
 
@@ -7,9 +9,6 @@ class PostForm(forms.ModelForm):
     class Meta:
         model = Post
         fields = ['author', 'post_type', 'categories', 'title', 'text', 'rating']
-        widgets = {
-            'post_type': forms.Select(choices=Post.POST_TYPE_CHOICES),
-        }
 
     def clean(self):
         cleaned_data = super().clean()
