@@ -5,6 +5,7 @@
 {% endblock title %}
 
 {% block content %}
+<br>
    <form action="" method="get">
     <input type="text" name="query" placeholder="Поиск по названию" value="{{ query }}">
     <input type="text" name="author" placeholder="Имя автора" value="{{ author }}">
@@ -18,7 +19,7 @@
         <li>
             <h3>{{ post.title }}</h3>
             <p>Автор: {{ post.author.name }}</p>
-            <p>Дата: {{ post.dateCreations }}</p>
+            <p>Дата: {{ post.created_at }}</p>
             <p>{{ post.preview }}</p>
             <a href="{{ post.get_absolute_url }}">Читать далее</a>
         </li>

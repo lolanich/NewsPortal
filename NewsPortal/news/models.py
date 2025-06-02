@@ -5,6 +5,7 @@ from django.shortcuts import get_object_or_404, render
 from django.template.loader import render_to_string
 from django.utils import timezone
 from django.urls import reverse
+from django.core.exceptions import ValidationError
 
 
 class Author(models.Model):
@@ -65,14 +66,23 @@ class Post(models.Model):
         return self.text[:124] + ('...' if len(self.text) > 124 else '')
 
     def save(self, *args, **kwargs):
-        is_new = self.pk is None
+        if not self.pk:
+            now = timezone.now()
+            start_of_day = now.replace(hour=0, minute=0, second=0, microsecond=0)
+            count = Post.objects.filter(
+                author=self.author,
+                post_type=Post.POST_TYPE_CHOICES,
+                created_at__gte=start_of_day,
+                created_at__lte=now
+            ).count()
+            if count >= 3:
+                raise ValidationError("Вы не можете публиковать более 3 новостей в сутки.")
         super().save(*args, **kwargs)
-        if is_new:
+        if self.post_type == Post.POST_TYPE_CHOICES:
             self.notify_subscribers()
 
     def notify_subscribers(self):
-        emails = set(
-            User.objects.filter(subscribed_categories__in=self.categories.all()).distinct().values_list('email', flat=True))
+        emails = set(User.objects.filter(subscribed_categories__in=self.categories.all()).distinct().values_list('email', flat=True))
 
         html_title = render_to_string('news/title.html', {'title': self.title})
         from django.utils.html import strip_tags
@@ -87,18 +97,21 @@ class Post(models.Model):
             except User.DoesNotExist:
                 username = 'Пользователь'
 
-            send_mail(
-                subject=subject,
-                message='',
-                from_email='t.maill@yandex.ru',
-                recipient_list=[email],
-                html_message=render_to_string('news/email_template.html', {
-                    'title': self.title,
-                    'html_title': html_title,
-                    'username': username,
-                    'preview_text': plain_text_preview,
-                }),
-            )
+            try:
+                send_mail(
+                    subject=self.title,
+                    message='',
+                    from_email='t.maill@yandex.ru',
+                    recipient_list=['t.maill@yandex.ru'],
+                    html_message=render_to_string('news/email_template.html', {
+                        'title': self.title,
+                        'html_title': html_title,
+                        'username': username,
+                        'preview_text': plain_text_preview,
+                    }),
+                )
+            except Exception as e:
+                print(f"Ошибка при отправке письма {email}: {e}")
 
 
 class PostCategory(models.Model):
