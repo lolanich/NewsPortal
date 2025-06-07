@@ -1,4 +1,6 @@
 from django.urls import path
+
+from sign.views import upgrade_me
 from .views import PostList, PostDetail, PostCreate, PostUpdate, PostDelete, search_news, CategoryList, subscribe
 
 urlpatterns = [
@@ -10,4 +12,5 @@ urlpatterns = [
    path('search/', search_news, name='news_search'),
    path('categories/<int:pk>/', CategoryList.as_view(), name='category_list'),
    path('categories/<int:pk>/subscribe/', subscribe, name='subscribe'),
+   path('sign/upgrade/', upgrade_me, name='upgrade'),
 ]

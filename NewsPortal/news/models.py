@@ -9,7 +9,7 @@ from django.core.exceptions import ValidationError
 
 
 class Author(models.Model):
-    user = models.OneToOneField(User, on_delete=models.CASCADE)
+    user = models.OneToOneField(User, on_delete=models.CASCADE, related_name='author')
     rating = models.IntegerField(default=0)
 
     def update_rating(self):
@@ -22,6 +22,9 @@ class Author(models.Model):
 
         self.rating = total_post_rating + comment_ratings + comments_to_posts
         self.save()
+
+    def __str__(self):
+        return self.user.username
 
 
 class Category(models.Model):
@@ -66,52 +69,7 @@ class Post(models.Model):
         return self.text[:124] + ('...' if len(self.text) > 124 else '')
 
     def save(self, *args, **kwargs):
-        if not self.pk:
-            now = timezone.now()
-            start_of_day = now.replace(hour=0, minute=0, second=0, microsecond=0)
-            count = Post.objects.filter(
-                author=self.author,
-                post_type=Post.POST_TYPE_CHOICES,
-                created_at__gte=start_of_day,
-                created_at__lte=now
-            ).count()
-            if count >= 3:
-                raise ValidationError("Вы не можете публиковать более 3 новостей в сутки.")
         super().save(*args, **kwargs)
-        if self.post_type == Post.POST_TYPE_CHOICES:
-            self.notify_subscribers()
-
-    def notify_subscribers(self):
-        emails = set(User.objects.filter(subscribed_categories__in=self.categories.all()).distinct().values_list('email', flat=True))
-
-        html_title = render_to_string('news/title.html', {'title': self.title})
-        from django.utils.html import strip_tags
-        plain_text_preview = strip_tags(self.text)[:50]
-
-        subject = self.title
-
-        for email in emails:
-            try:
-                user = User.objects.get(email=email)
-                username = user.username
-            except User.DoesNotExist:
-                username = 'Пользователь'
-
-            try:
-                send_mail(
-                    subject=self.title,
-                    message='',
-                    from_email='t.maill@yandex.ru',
-                    recipient_list=['t.maill@yandex.ru'],
-                    html_message=render_to_string('news/email_template.html', {
-                        'title': self.title,
-                        'html_title': html_title,
-                        'username': username,
-                        'preview_text': plain_text_preview,
-                    }),
-                )
-            except Exception as e:
-                print(f"Ошибка при отправке письма {email}: {e}")
 
 
 class PostCategory(models.Model):

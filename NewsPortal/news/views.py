@@ -33,22 +33,22 @@ class PostDetail(DetailView):
     context_object_name = 'post'
 
 
-class PostCreate(CreateView, PermissionRequiredMixin):
-    permission_required = '<NewsApp>.<add>_<post>'
+class PostCreate(PermissionRequiredMixin, CreateView):
+    permission_required = 'news.add_post'
     model = Post
-    fields = ['author', 'post_type', 'categories', 'title', 'text',]
+    fields = ['post_type', 'categories', 'title', 'text',]
     template_name = 'news/post_edit.html'
     success_url = reverse_lazy('post_list')
 
     def form_valid(self, form):
-        response = super().form_valid(form)
-        categories_ids = self.request.POST.getlist('categories')
-        self.object.categories.set(categories_ids)
-        return response
+        post = form.save(commit=False)
+        post.author = self.request.user.author
+        post.save()
+        return super().form_valid(form)
 
 
-class PostUpdate(LoginRequiredMixin, PermissionRequiredMixin, UpdateView):
-    permission_required = 'NewsApp.change_post'
+class PostUpdate(PermissionRequiredMixin, UpdateView):
+    permission_required = 'news.change_post'
     model = Post
     template_name = 'news/post_edit.html'
     success_url = reverse_lazy('post_list')
@@ -58,8 +58,8 @@ class PostUpdate(LoginRequiredMixin, PermissionRequiredMixin, UpdateView):
         return get_object_or_404(Post, id=self.kwargs['pk'])
 
 
-class PostDelete(LoginRequiredMixin, PermissionRequiredMixin, DeleteView):
-    permission_required = 'NewsApp.delete_post'
+class PostDelete(PermissionRequiredMixin, DeleteView):
+    permission_required = 'news.delete_post'
     model = Post
     template_name = 'news/post_delete.html'
     success_url = reverse_lazy('post_list')

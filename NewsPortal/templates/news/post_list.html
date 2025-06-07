@@ -85,5 +85,9 @@
        {% endif %}
    {% endif %}
 <br><br>
+{% if perms.news.add_post %}
 <button> <a href="{% url 'post_edit' %}"><u>Опубликовать пост</u></a> </button>
+{% else %}
+<button> <a href="sign/upgrade/"> Стань автором, чтобы публиковать посты!</a> </button>
+{% endif %}
 {% endblock content %}

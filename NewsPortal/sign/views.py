@@ -3,6 +3,8 @@ from django.shortcuts import redirect
 from django.contrib.auth.models import Group
 from django.contrib.auth.models import User
 from django.views.generic.edit import CreateView
+
+from news.models import Author
 from .models import BaseRegisterForm
 
 
@@ -18,5 +20,6 @@ def upgrade_me(request):
     author_group = Group.objects.get(name='authors')
     if not request.user.groups.filter(name='authors').exists():
         author_group.user_set.add(user)
+    Author.objects.create(user=user)
     return redirect('/')
 
